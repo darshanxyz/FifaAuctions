@@ -3,8 +3,6 @@ package auctions;
 import java.util.*;
 import java.util.Map.Entry;
 
-import javafx.util.Pair;
-
 public class FootballAuctions {
 	
 	void addPlayerToAuctionsPool(HashMap playerMap, String playerName, int playerValue) {
@@ -15,6 +13,9 @@ public class FootballAuctions {
 		// TODO Auto-generated method stub
 		HashMap<String, Integer> playerMap = new HashMap<String, Integer>();
 		FootballAuctions fifa = new FootballAuctions();
+		//format: (map, player name, base value)
+		
+		//Goalkeepers
 		fifa.addPlayerToAuctionsPool(playerMap, "Courtois", 3000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "de Gea", 3000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "Neuer", 3000000);
@@ -22,6 +23,7 @@ public class FootballAuctions {
 		fifa.addPlayerToAuctionsPool(playerMap, "Handanovic", 3000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "K.Navas", 3000000);
 		
+		//Defenders
 		fifa.addPlayerToAuctionsPool(playerMap, "Dani Alves", 5000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "Lahm", 5000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "Carvajal", 5000000);
@@ -53,6 +55,7 @@ public class FootballAuctions {
 		fifa.addPlayerToAuctionsPool(playerMap, "Hector", 5000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "Valencia", 5000000);
 		
+		//Midfielders
 		fifa.addPlayerToAuctionsPool(playerMap, "Modric", 5000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "Kroos", 5000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "Iniesta", 5000000);
@@ -94,7 +97,7 @@ public class FootballAuctions {
 		fifa.addPlayerToAuctionsPool(playerMap, "Xhaka", 5000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "Carassco", 5000000);		
 		
-		
+		//Forwards
 		fifa.addPlayerToAuctionsPool(playerMap, "Suarez", 8000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "Lewandowski", 8000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "Kane", 8000000);
@@ -111,21 +114,19 @@ public class FootballAuctions {
 		fifa.addPlayerToAuctionsPool(playerMap, "Morata", 8000000);
 		fifa.addPlayerToAuctionsPool(playerMap, "Dybala", 8000000);
 		
+		//Gamers
 		Gamer gamer1 = new Gamer("P1");
 		Gamer gamer2 = new Gamer("P2");
 		Gamer gamer3 = new Gamer("P3");
 		Gamer gamer4 = new Gamer("P4");
+		
 		Conversion c = new Conversion();
-		for(Map.Entry player : playerMap.entrySet()) { 
-			
-			
+		
+		for(Map.Entry player : playerMap.entrySet()) { 	
 			System.out.println(player.getKey() + " - " + c.convert((Integer)player.getValue()).toUpperCase());
 			Scanner sc = new Scanner(System.in);
 			System.out.print("Gamer: ");
-			
-				
 			switch (sc.next()) {
-			
 			case "1":
 				System.out.println("Value: ");
 				if(gamer1.getBudget() < (Integer)player.getValue()) {
@@ -135,7 +136,7 @@ public class FootballAuctions {
 					gamer1.assignPlayerToTeam(player.getKey(), sc.nextInt()*1000000);
 					break;
 				}
-				
+
 			case "2":
 				System.out.println("Value: ");
 				gamer2.assignPlayerToTeam(player.getKey(), sc.nextInt()*1000000);
@@ -152,9 +153,9 @@ public class FootballAuctions {
 				System.out.println("Player doesn't exist.");
 				break;
 			}
-			
-			
-			System.out.println("-------------------------------------");
+
+			//Displaying current squads with remaining budget
+			System.out.println("*************************************");
 			System.out.println("-------------------------------------");
 			gamer1.showAllPlayers();
 			System.out.println("-------------------------------------");
@@ -164,7 +165,7 @@ public class FootballAuctions {
 			System.out.println("-------------------------------------");
 			gamer4.showAllPlayers();
 			System.out.println("-------------------------------------");
-			System.out.println("-------------------------------------");
+			System.out.println("*************************************");
 		}
 		
 	}
